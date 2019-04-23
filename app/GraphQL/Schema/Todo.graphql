@@ -1,0 +1,41 @@
+type Todo {
+    id: ID!
+    user: User!
+    title: String!
+    description: String!
+    status: Status
+    created_at: String
+    updated_at: String
+}
+
+enum Status {
+    TO_DO
+    DOING
+    DONE
+}
+
+type Query {
+    todo(id: ID!): Todo
+    todos: [Todo]
+}
+
+type Mutation {
+    createTodo(todoInput: TodoInput!): Todo
+    updateTodo(updateTodoInput: UpdateTodoInput!): Todo
+    deleteTodo(id: ID!): Boolean
+}
+
+input TodoInput {
+    title: String!
+    description: String!
+    status: Status!
+    user_id: Int!
+}
+
+input UpdateTodoInput {
+    id: ID!
+    title: String
+    description: String
+    status: Status
+    user_id: Int
+}
