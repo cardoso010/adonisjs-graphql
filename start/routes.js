@@ -15,7 +15,12 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
+const GraphQLServer = use('GraphQLServer')
 
-Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
+Route.post('/', (context) => {
+  return GraphQLServer.handle(context)
+})
+
+Route.get('/graphiql', (context) => {
+  return GraphQLServer.handleUI(context)
 })
