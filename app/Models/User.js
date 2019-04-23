@@ -38,6 +38,14 @@ class User extends Model {
   todos() {
     return this.hasMany('App/Models/Todo')
   }
+
+  likes() {
+    return this.hasMany('App/Models/Like')
+  }
+
+  comments() {
+    return this.hasMany('App/Models/Comment')
+  }
 }
 
 module.exports = User
