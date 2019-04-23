@@ -42,7 +42,7 @@ module.exports = {
 
     User: {
         todos: async (user, _, context) => {
-            const todos = await Todo.query().where('user_id', user.company_id).fetch()
+            const todos = await Todo.query().where('user_id', user.id).fetch()
             return todos.toJSON()
         },
     },
