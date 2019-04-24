@@ -4,6 +4,8 @@ type User {
     username: String!
     email: String!
     todos: [Todo!]!
+    posts: [Post!]!
+    comments: [Comment!]!
     created_at: String!
     updated_at: String!
 }

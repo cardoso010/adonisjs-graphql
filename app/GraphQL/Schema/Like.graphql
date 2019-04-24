@@ -1,0 +1,16 @@
+type Like {
+    id: ID!
+    user: User!
+    post: Post!
+    created_at: String!
+    updated_at: String!
+}
+
+type Mutation {
+    createLike(likeInput: LikeInput!): Like
+}
+
+input LikeInput {
+    user_id: Int!
+    post_id: Int!
+}
