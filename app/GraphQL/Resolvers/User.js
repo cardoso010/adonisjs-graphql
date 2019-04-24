@@ -1,7 +1,8 @@
 const GraphQLError = use('GraphQLError')
 const User = use('App/Models/User')
 const Todo = use('App/Models/Todo')
-
+const Post = use('App/Models/Post')
+const Comment = use('App/Models/Comment')
 
 module.exports = {
     Query: {
@@ -44,6 +45,14 @@ module.exports = {
         todos: async (user, _, context) => {
             const todos = await Todo.query().where('user_id', user.id).fetch()
             return todos.toJSON()
+        },
+        posts: async (user, _, context) => {
+            const posts = await Post.query().where('user_id', user.id).fetch()
+            return posts.toJSON()
+        },
+        comments: async (user, _, context) => {
+            const comments = await Comment.query().where('user_id', user.id).fetch()
+            return comments.toJSON()
         },
     },
 }
